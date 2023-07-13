@@ -14,10 +14,12 @@ class Base:
         self.admin_tab = (By.XPATH, "//a[contains(@href,'viewAdminModule')]")
 
         # PIM (configuration)
-        self.pim_tab = (By.XPATH, "//a[contains(@href,'viewPimModule')]")
+        # self.pim_tab = (By.XPATH, "//a[contains(@href,'viewPimModule')]")
+        self.pim_tab = (By.LINK_TEXT,"PIM")
         # leave
-        self.leave_tab = (By.CLASS_NAME, "Leave")
-
+        self.leave_tab = (By.LINK_TEXT, "Leave")
+        # Time
+        self.time_tab = (By.XPATH,"//a[@href='/web/index.php/time/viewTimeModule']")
 
         # Logout Locators
         self.user_profile = (By.CLASS_NAME, 'oxd-userdropdown')

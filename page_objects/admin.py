@@ -28,8 +28,10 @@ class Users(Base):
         self.EF.find_element(self.search_username_txt).clear()
         self.EF.find_element(self.search_username_txt).send_keys(username)
 
-    def select_user_role(self, user_role):
-        pass
+    def select_user_role(self):
+        self.pageSource = self.driver.getPageSource()
+        print(self.pageSource)
+        self.driver.findElement(By.xpath("//div[@role='option']/span[text()='ESS']")).click()
 
 
 
@@ -44,7 +46,6 @@ class Users(Base):
 
     def search_user(self, search_dict: dict):
         self.enter_username(search_dict.get('username', ""))
-        self.select_user_role(search_dict.get('role', ""))
         self.enter_employee_name(search_dict.get('name', ""))
         self.select_status(search_dict.get('status', ""))
         self.click_search_btn()
